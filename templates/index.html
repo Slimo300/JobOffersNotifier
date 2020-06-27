@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Pracuj</title>
+</head>
+<body style="height: 100%; width: 100%;">
+<div class="container"
+     style="justify-content: center; display: flex; flex-direction: column; align-items: center; height: 100%; width: 80%;">
+    <h1> JobOffersNotifier </h1>
+    <form action="{% url 'sendmail' %}" method="post" style="color: white; height: 50%; width: 100%;"> {% csrf_token %}
+        <div class="input-field col s12">
+          <input id="email" type="email" name="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+        {% if lista %}
+            <ul style="display: grid; grid-template-columns: auto auto auto;">
+            {% for l in lista %}
+                <li style="display: inline-grid;">
+                    <label>
+                        <input type="checkbox" class="filled-in" name="categories" value="{{l.key}}" />
+                        <span>{{l.value}}</span>
+                    </label>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Brak listy</p>
+        {% endif %}
+        <button class="btn waves-effect waves-light" type="submit" name="action" style="width: 100%;">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
+</body>
+</html>
