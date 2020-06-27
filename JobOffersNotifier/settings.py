@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from django.core.exceptions import ImproperlyConfigured
 import django_heroku
-import dj_database_url
-from decouple import config
+# import dj_database_url
+# from decouple import config
 import json
 import os
 
@@ -140,14 +140,10 @@ def get_secret(setting, secrets=secrets):
         raise ImproperlyConfigured("Set the {} setting".format(setting))
 
 
-from boto.s3.connection import S3Connection
-
-s3 = S3Connection(os.environ['EM'], os.environ['PASS'])
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.environ['EM']
-EMAIL_HOST_PASSWORD = os.environ['PASS']
+EMAIL_HOST_USER = get_secret('EMAIL')
+EMAIL_HOST_PASSWORD = get_secret('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
