@@ -130,17 +130,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
-    secrets = json.load(secrets_file)
+# with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
+#     secrets = json.load(secrets_file)
 
-
+"""
 def get_secret(setting, secrets=secrets):
-    """Get secret setting or fail with ImproperlyConfigured"""
+    # Get secret setting or fail with ImproperlyConfigured
     try:
         return secrets[setting]
     except KeyError:
         raise ImproperlyConfigured("Set the {} setting".format(setting))
-
+"""
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
