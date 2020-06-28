@@ -76,6 +76,6 @@ def sendmail(request):
 
     the_new_message = str(the_head) + formatted_message
 
-    send_mail('Oferty', strip_tags(the_new_message), from_email, [to_email, ], html_message=the_new_message)
-
+    # send_mail('Oferty', strip_tags(the_new_message), from_email, [to_email, ], html_message=the_new_message)
+    send_mail('Oferty', 'message', from_email, [to_email, ])
     return pracuj(request)
