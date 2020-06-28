@@ -17,7 +17,7 @@ import django_heroku
 import json
 import os
 
-from boto.s3.connection import S3Connection
+# from boto.s3.connection import S3Connection
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,8 +27,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm%nt3sq-ppg70y!^h*_6i1!h3hxm@fw(@tmj@7-cew7ti5b&8='
 
+SECRET_KEY = os.environ.get('DJANGO_JOB_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

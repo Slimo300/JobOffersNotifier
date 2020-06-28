@@ -6,6 +6,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Pracuj</title>
+    <style>
+        @media screen and (max-width: 992px){
+            #lista {
+                grid-template-columns: auto auto;
+            }
+        }
+    </style>
 </head>
 <body style="height: 100%; width: 100%;">
 <div class="container"
@@ -17,9 +24,9 @@
           <label for="email">Email</label>
         </div>
         {% if lista %}
-            <ul style="display: grid; grid-template-columns: auto auto auto;">
+            <ul id="lista" style="display: grid; grid-template-columns: auto auto auto;">
             {% for l in lista %}
-                <li style="display: inline-grid;">
+                <li class="the_li" style="display: inline-grid;">
                     <label>
                         <input type="checkbox" class="filled-in" name="categories" value="{{l.key}}" />
                         <span>{{l.value}}</span>
