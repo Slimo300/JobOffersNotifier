@@ -49,7 +49,7 @@ def pracuj(request):
 def sendmail(request):
     link = "https://www.pracuj.pl/praca?rd=30"
     to_email = request.POST['email']
-    from_email = 'sebastian.slimak707@gmail.com'
+    from_email = 'kato20@onet.pl'
     categories = request.POST.getlist('categories')
     if len(categories) == 0:
         return pracuj(request)
