@@ -14,7 +14,6 @@ from django.core.exceptions import ImproperlyConfigured
 import django_heroku
 # import dj_database_url
 # from decouple import config
-import json
 import os
 
 # from boto.s3.connection import S3Connection
@@ -30,7 +29,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 SECRET_KEY = os.environ.get('DJANGO_JOB_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -129,9 +128,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# with open(os.path.join(BASE_DIR, 'secrets.json')) as secrets_file:
-#     secrets = json.load(secrets_file)
 
 """
 def get_secret(setting, secrets=secrets):
